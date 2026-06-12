@@ -67,8 +67,8 @@
       "type": "contact",
       "title": "联系我们",
       "description": "留下您的联系方式，我们将有专人为您提供一对一咨询服务。",
-      "showForm": true,
-      "mapEmbed": "。"
+      "showForm": false,
+      "mapEmbed": "无"
     }
   ],
   "categories": [
