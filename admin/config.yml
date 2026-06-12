@@ -5,8 +5,8 @@ backend:
   base_url: https://www.siyuxiamen.cn
   auth_endpoint: api/auth
 
-media_folder: "images"
-public_folder: "images"
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: "site_content"
