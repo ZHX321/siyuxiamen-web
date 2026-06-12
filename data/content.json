@@ -3,16 +3,74 @@
     "title": "思域厦门 | 咨询与服务",
     "favicon": "https://api.dicebear.com/7.x/initials/svg?seed=SYXM"
   },
-  "hero": {
-    "title": "连接未来，创造价值",
-    "subtitle": "我们为全球领先的企业提供卓越的数字化转型方案与战略咨询服务。",
-    "ctaText": "了解更多",
-    "ctaLink": "#/category/digital"
-  },
-  "about": {
-    "title": "关于我们",
-    "description": "成立于 2018 年，思域厦门致力于通过技术创新和深度行业洞察，帮助客户在快速变化的市场中保持竞争优势。我们的团队由行业资深专家组成，深耕于人工智能、大数据及企业数字化架构领域。"
-  },
+  "sections": [
+    {
+      "type": "hero",
+      "title": "连接未来，创造价值",
+      "subtitle": "我们为全球领先的企业提供卓越的数字化转型方案与战略咨询服务。",
+      "ctaText": "了解更多",
+      "ctaLink": "#/category/digital",
+      "backgroundImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
+    },
+    {
+      "type": "services",
+      "title": "核心业务分类",
+      "items": [
+        {
+          "icon": "🚀",
+          "name": "数字化转型",
+          "summary": "协助企业将传统架构平滑迁移至云端，实现弹性扩展。"
+        },
+        {
+          "icon": "💡",
+          "name": "战略咨询",
+          "summary": "深度的行业调研，助力企业精准决策。"
+        },
+        {
+          "icon": "🤖",
+          "name": "人工智能",
+          "summary": "利用 AI 技术优化业务流程，释放人力资源。"
+        }
+      ]
+    },
+    {
+      "type": "pricing",
+      "title": "尊享服务方案",
+      "plans": [
+        {
+          "name": "基础版",
+          "price": "¥999",
+          "features": "基础咨询, 5x8 技术支持, 每月进度报告",
+          "buttonText": "立即开始",
+          "buttonLink": "#contact"
+        },
+        {
+          "name": "专业版",
+          "price": "¥2,999",
+          "features": "深度全案策划, 7x24 专属支持, 实时业务看板",
+          "buttonText": "选择专业版",
+          "buttonLink": "#contact"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "title": "成功案例展示",
+      "images": [
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+      ]
+    },
+    {
+      "type": "contact",
+      "title": "联系我们",
+      "description": "留下您的联系方式，我们将有专人为您提供一对一咨询服务。",
+      "showForm": true,
+      "mapEmbed": ""
+    }
+  ],
   "categories": [
     {
       "id": "digital",

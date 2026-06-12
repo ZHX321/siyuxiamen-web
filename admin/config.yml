@@ -26,33 +26,60 @@ collections:
               - label: "Favicon URL"
                 name: "favicon"
                 widget: "string"
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - label: "Title"
-                name: "title"
-                widget: "string"
-              - label: "Subtitle"
-                name: "subtitle"
-                widget: "markdown"
-              - label: "CTA Text"
-                name: "ctaText"
-                widget: "string"
-              - label: "CTA Link"
-                name: "ctaLink"
-                widget: "string"
-          - label: "About"
-            name: "about"
-            widget: "object"
-            fields:
-              - label: "Title"
-                name: "title"
-                widget: "string"
-              - label: "Description"
-                name: "description"
-                widget: "markdown"
-          - label: "Categories"
+          - label: "Page Sections"
+            name: "sections"
+            widget: "list"
+            types:
+              - label: "Hero"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Subtitle", name: "subtitle", widget: "markdown" }
+                  - { label: "CTA Text", name: "ctaText", widget: "string" }
+                  - { label: "CTA Link", name: "ctaLink", widget: "string" }
+                  - { label: "Background Image", name: "backgroundImage", widget: "image" }
+              - label: "Services"
+                name: "services"
+                widget: "object"
+                fields:
+                  - { label: "Section Title", name: "title", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - { label: "Icon", name: "icon", widget: "string" }
+                      - { label: "Name", name: "name", widget: "string" }
+                      - { label: "Summary", name: "summary", widget: "markdown" }
+              - label: "Pricing"
+                name: "pricing"
+                widget: "object"
+                fields:
+                  - { label: "Section Title", name: "title", widget: "string" }
+                  - label: "Plans"
+                    name: "plans"
+                    widget: "list"
+                    fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - { label: "Price", name: "price", widget: "string" }
+                      - { label: "Features (Comma separated)", name: "features", widget: "string" }
+                      - { label: "Button Text", name: "buttonText", widget: "string" }
+                      - { label: "Button Link", name: "buttonLink", widget: "string" }
+              - label: "Gallery"
+                name: "gallery"
+                widget: "object"
+                fields:
+                  - { label: "Section Title", name: "title", widget: "string" }
+                  - { label: "Images", name: "images", widget: "list", field: { label: "Image", name: "image", widget: "image" } }
+              - label: "Contact"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "markdown" }
+                  - { label: "Show Form", name: "showForm", widget: "boolean" }
+                  - { label: "Map Embed Code", name: "mapEmbed", widget: "text" }
+          - label: "Categories (For Subpages)"
             name: "categories"
             widget: "list"
             fields:
@@ -69,38 +96,17 @@ collections:
                 name: "items"
                 widget: "list"
                 fields:
-                  - label: "Item ID (URL safe)"
-                    name: "id"
-                    widget: "string"
-                  - label: "Item Name"
-                    name: "name"
-                    widget: "string"
-                  - label: "Summary"
-                    name: "summary"
-                    widget: "markdown"
-                  - label: "Image URL"
-                    name: "image"
-                    widget: "image"
-                  - label: "Full Details (HTML/Markdown)"
-                    name: "full_details"
-                    widget: "markdown"
-          - label: "Contact"
+                  - { label: "Item ID (URL safe)", name: "id", widget: "string" }
+                  - { label: "Item Name", name: "name", widget: "string" }
+                  - { label: "Summary", name: "summary", widget: "markdown" }
+                  - { label: "Image URL", name: "image", widget: "image" }
+                  - { label: "Full Details (HTML/Markdown)", name: "full_details", widget: "markdown" }
+          - label: "Footer Info"
             name: "contact"
             widget: "object"
             fields:
-              - label: "Title"
-                name: "title"
-                widget: "string"
-              - label: "Email"
-                name: "email"
-                widget: "string"
-              - label: "Phone"
-                name: "phone"
-                widget: "string"
-              - label: "Address"
-                name: "address"
-                widget: "string"
-              - label: "Copyright"
-                name: "copyright"
-                widget: "string"
-: "string"
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Copyright", name: "copyright", widget: "string" }
