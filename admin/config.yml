@@ -18,37 +18,74 @@ collections:
             name: "site"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Favicon URL", name: "favicon", widget: "string" }
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Favicon URL"
+                name: "favicon"
+                widget: "string"
           - label: "Hero"
             name: "hero"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "text" }
-              - { label: "CTA Text", name: "ctaText", widget: "string" }
-              - { label: "CTA Link", name: "ctaLink", widget: "string" }
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Subtitle"
+                name: "subtitle"
+                widget: "text"
+              - label: "CTA Text"
+                name: "ctaText"
+                widget: "string"
+              - label: "CTA Link"
+                name: "ctaLink"
+                widget: "string"
           - label: "About"
             name: "about"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Description"
+                name: "description"
+                widget: "text"
           - label: "Services"
             name: "services"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Service Items", name: "items", widget: "list", fields:
-                  - { label: "Icon", name: "icon", widget: "string" }
-                  - { label: "Name", name: "name", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "text" }
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Service Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "string"
+                  - label: "Name"
+                    name: "name"
+                    widget: "string"
+                  - label: "Description"
+                    name: "desc"
+                    widget: "text"
           - label: "Contact"
             name: "contact"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "Phone", name: "phone", widget: "string" }
-              - { label: "Address", name: "address", widget: "string" }
-              - { label: "Copyright", name: "copyright", widget: "string" }
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Email"
+                name: "email"
+                widget: "string"
+              - label: "Phone"
+                name: "phone"
+                widget: "string"
+              - label: "Address"
+                name: "address"
+                widget: "string"
+              - label: "Copyright"
+                name: "copyright"
+                widget: "string"
