@@ -175,7 +175,7 @@
                                 <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover">
                                 <div class="p-8">
                                     <h3 class="text-2xl font-bold mb-4">${item.name}</h3>
-                                    <p class="text-slate-600 mb-8">${item.summary}</p>
+                                    <div class="text-slate-600 mb-8">${marked.parse(item.summary)}</div>
                                     <a href="#/item/${item.id}" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
                                         查看详情 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                     </a>
@@ -229,6 +229,10 @@
         }
 
         window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+er('DOMContentLoaded', init);
     </script>
 </body>
 </html>
