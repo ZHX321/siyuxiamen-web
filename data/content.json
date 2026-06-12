@@ -7,32 +7,49 @@
     "title": "连接未来，创造价值",
     "subtitle": "我们为全球领先的企业提供卓越的数字化转型方案与战略咨询服务。",
     "ctaText": "了解更多",
-    "ctaLink": "#about"
+    "ctaLink": "#/category/digital"
   },
   "about": {
     "title": "关于我们",
     "description": "成立于 2018 年，思域厦门致力于通过技术创新和深度行业洞察，帮助客户在快速变化的市场中保持竞争优势。我们的团队由行业资深专家组成，深耕于人工智能、大数据及企业数字化架构领域。"
   },
-  "services": {
-    "title": "核心业务",
-    "items": [
-      {
-        "icon": "🚀",
-        "name": "数字化转型",
-        "desc": "全方位的业务流程梳理与数字化重构，提升组织效能。"
-      },
-      {
-        "icon": "💡",
-        "name": "战略咨询",
-        "desc": "基于数据的市场洞察，为企业中长期规划提供决策支持。"
-      },
-      {
-        "icon": "🛠️",
-        "name": "定制开发",
-        "desc": "高质量、可扩展的软件系统开发，满足个性化业务需求。"
-      }
-    ]
-  },
+  "categories": [
+    {
+      "id": "digital",
+      "name": "数字化转型",
+      "icon": "🚀",
+      "items": [
+        {
+          "id": "cloud-migration",
+          "name": "云端迁移服务",
+          "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
+          "summary": "协助企业将传统架构平滑迁移至云端，实现弹性扩展。",
+          "full_details": "<h3>云端迁移服务详情</h3><p>我们的云端迁移服务涵盖了从基础设施评估到最终实施的全过程。我们支持阿里云、华为云及腾讯云等主流云平台。</p><ul><li>架构评估与规划</li><li>数据安全迁移方案</li><li>云原生应用改造</li><li>24/7 运维支持</li></ul>"
+        },
+        {
+          "id": "process-automation",
+          "name": "流程自动化 RPA",
+          "image": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=800&q=80",
+          "summary": "利用机器人流程自动化技术，释放人力资源。",
+          "full_details": "<h3>流程自动化 RPA 详情</h3><p>通过引入 RPA 技术，我们帮助企业减少重复性劳动。在财务报表处理、人力资源入职流程等领域已有成熟案例。</p>"
+        }
+      ]
+    },
+    {
+      "id": "consulting",
+      "name": "战略咨询",
+      "icon": "💡",
+      "items": [
+        {
+          "id": "market-analysis",
+          "name": "市场洞察分析",
+          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+          "summary": "深度的行业调研，助力企业精准决策。",
+          "full_details": "<h3>市场洞察分析详情</h3><p>我们提供定制化的行业研究报告，包括竞品分析、消费者行为预测等。</p>"
+        }
+      ]
+    }
+  ],
   "contact": {
     "title": "联系我们",
     "email": "contact@siyuxiamen.cn",
