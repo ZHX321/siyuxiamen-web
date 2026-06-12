@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title-tag">加载中...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 leading-relaxed">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span id="site-title" class="text-xl font-bold tracking-tight text-indigo-600"></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="text-slate-600 hover:text-indigo-600 px-3 py-2 text-sm font-medium">关于</a>
+                        <a href="#services" class="text-slate-600 hover:text-indigo-600 px-3 py-2 text-sm font-medium">服务</a>
+                        <a href="#contact" class="text-slate-600 hover:text-indigo-600 px-3 py-2 text-sm font-medium">联系</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center lg:text-left lg:max-w-2xl fade-in">
+                <h1 id="hero-title" class="text-4xl font-extrabold tracking-tight sm:text-6xl text-slate-900 mb-6"></h1>
+                <p id="hero-subtitle" class="text-xl text-slate-600 mb-10 leading-relaxed"></p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a id="hero-cta" href="#" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg"></a>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-10 pointer-events-none">
+            <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="400" cy="400" r="400" fill="url(#paint0_radial)" />
+                <defs>
+                    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 400) rotate(90) scale(400)">
+                        <stop stop-color="#4F46E5" />
+                        <stop offset="1" stop-color="#4F46E5" stop-opacity="0" />
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 id="about-title" class="text-3xl font-bold text-slate-900 mb-8"></h2>
+                <p id="about-description" class="text-lg text-slate-600 leading-loose"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 id="services-title" class="text-3xl font-bold text-slate-900"></h2>
+            </div>
+            <div id="services-list" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 id="contact-title" class="text-3xl font-bold mb-12"></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto mb-16">
+                <div>
+                    <h4 class="text-indigo-400 font-semibold mb-2">邮件</h4>
+                    <p id="contact-email"></p>
+                </div>
+                <div>
+                    <h4 class="text-indigo-400 font-semibold mb-2">电话</h4>
+                    <p id="contact-phone"></p>
+                </div>
+                <div>
+                    <h4 class="text-indigo-400 font-semibold mb-2">地址</h4>
+                    <p id="contact-address"></p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-slate-500 text-sm">
+                <p id="contact-copyright"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        async function loadContent() {
+            try {
+                const response = await fetch('./data/content.json');
+                const data = await response.json();
+
+                // Site Info
+                document.title = data.site.title;
+                document.getElementById('site-title').textContent = data.site.title;
+
+                // Hero
+                document.getElementById('hero-title').textContent = data.hero.title;
+                document.getElementById('hero-subtitle').textContent = data.hero.subtitle;
+                document.getElementById('hero-cta').textContent = data.hero.ctaText;
+                document.getElementById('hero-cta').href = data.hero.ctaLink;
+
+                // About
+                document.getElementById('about-title').textContent = data.about.title;
+                document.getElementById('about-description').textContent = data.about.description;
+
+                // Services
+                document.getElementById('services-title').textContent = data.services.title;
+                const servicesList = document.getElementById('services-list');
+                data.services.items.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow';
+                    card.innerHTML = `
+                        <div class="text-4xl mb-6">${item.icon}</div>
+                        <h3 class="text-xl font-bold mb-4 text-slate-900">${item.name}</h3>
+                        <p class="text-slate-600">${item.desc}</p>
+                    `;
+                    servicesList.appendChild(card);
+                });
+
+                // Contact
+                document.getElementById('contact-title').textContent = data.contact.title;
+                document.getElementById('contact-email').textContent = data.contact.email;
+                document.getElementById('contact-phone').textContent = data.contact.phone;
+                document.getElementById('contact-address').textContent = data.contact.address;
+                document.getElementById('contact-copyright').textContent = data.contact.copyright;
+
+            } catch (error) {
+                console.error('Error loading content:', error);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadContent);
+    </script>
+</body>
+</html>

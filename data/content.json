@@ -1,0 +1,43 @@
+{
+  "site": {
+    "title": "思域厦门 | 咨询与服务",
+    "favicon": "https://api.dicebear.com/7.x/initials/svg?seed=SYXM"
+  },
+  "hero": {
+    "title": "连接未来，创造价值",
+    "subtitle": "我们为全球领先的企业提供卓越的数字化转型方案与战略咨询服务。",
+    "ctaText": "了解更多",
+    "ctaLink": "#about"
+  },
+  "about": {
+    "title": "关于我们",
+    "description": "成立于 2018 年，思域厦门致力于通过技术创新和深度行业洞察，帮助客户在快速变化的市场中保持竞争优势。我们的团队由行业资深专家组成，深耕于人工智能、大数据及企业数字化架构领域。"
+  },
+  "services": {
+    "title": "核心业务",
+    "items": [
+      {
+        "icon": "🚀",
+        "name": "数字化转型",
+        "desc": "全方位的业务流程梳理与数字化重构，提升组织效能。"
+      },
+      {
+        "icon": "💡",
+        "name": "战略咨询",
+        "desc": "基于数据的市场洞察，为企业中长期规划提供决策支持。"
+      },
+      {
+        "icon": "🛠️",
+        "name": "定制开发",
+        "desc": "高质量、可扩展的软件系统开发，满足个性化业务需求。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我们",
+    "email": "contact@siyuxiamen.cn",
+    "phone": "+86 592-1234-5678",
+    "address": "福建省厦门市思明区软件园二期",
+    "copyright": "© 2026 思域厦门. All Rights Reserved."
+  }
+}
