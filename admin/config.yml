@@ -86,7 +86,7 @@ collections:
             fields: &page_fields
               - { label: "Page ID (URL safe)", name: "id", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
-              - label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
+              - { label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
               - { label: "Icon", name: "icon", widget: "string", required: false }
               - { label: "Image", name: "image", widget: "image", required: false }
               - { label: "Summary", name: "summary", widget: "markdown", required: false }
