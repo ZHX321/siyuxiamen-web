@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "思域厦门 | 咨询与服务",
+    "title": "杭州·企业出海| 跨境外贸电商·咨询与服务",
     "favicon": "https://api.dicebear.com/7.x/initials/svg?seed=SYXM"
   },
   "sections": [
     {
       "type": "hero",
-      "title": "连接未来，创造价值",
+      "title": "5年经验，专注线上运营，连接海外，外贸跨境出海",
       "subtitle": "我们为全球领先的企业提供卓越的数字化转型方案与战略咨询服务。",
       "ctaText": "了解更多",
-      "ctaLink": "#/category/digital",
+      "ctaLink": "#/pages/digital",
       "backgroundImage": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
     },
     {
@@ -18,18 +18,18 @@
       "items": [
         {
           "icon": "🚀",
-          "name": "数字化转型",
-          "summary": "协助企业将传统架构平滑迁移至云端，实现弹性扩展。"
+          "name": " 数字化基建 (独立站/SEO)",
+          "summary": "适合大工厂及品牌方，摆脱平台限制，自建私域。SEO精准布局，将搜索流量转化为高利润询盘"
         },
         {
           "icon": "💡",
-          "name": "战略咨询",
-          "summary": "深度的行业调研，助力企业精准决策。"
+          "name": "TikTok全渠道流量裂变",
+          "summary": "通用业务，借力TK红利横扫社媒，低成本内容钩子，精准捕捉全球海量意向买家"
         },
         {
           "icon": "🤖",
-          "name": "人工智能",
-          "summary": "利用 AI 技术优化业务流程，释放人力资源。"
+          "name": "超级个体实验室 (OPC 项目/实录)",
+          "summary": "实战拆解OPC，AI重塑生产力。一人即可成军，低成本创业项目，直击小微团队或个体创业者追求极致人效的诉求。"
         }
       ]
     },
@@ -38,17 +38,24 @@
       "title": "尊享服务方案",
       "plans": [
         {
-          "name": "基础版",
-          "price": "¥999",
-          "features": "基础咨询, 5x8 技术支持, 每月进度报告",
+          "name": "基础版opc项目",
+          "price": "999元",
+          "features": "opc一人创业",
           "buttonText": "立即开始",
           "buttonLink": "#contact"
         },
         {
-          "name": "专业版",
-          "price": "¥2,999",
-          "features": "深度全案策划, 7x24 专属支持, 实时业务看板",
+          "name": "中级版",
+          "price": "19800人民币起",
+          "features": "企业出海获客对赌保效",
           "buttonText": "选择专业版",
+          "buttonLink": "#contact"
+        },
+        {
+          "name": "高级版",
+          "price": "54800人民币",
+          "features": "企业出海获客多渠道对赌保效",
+          "buttonText": "点击查看",
           "buttonLink": "#contact"
         }
       ]
@@ -66,53 +73,99 @@
     {
       "type": "contact",
       "title": "联系我们",
-      "description": "留下您的联系方式，我们将有专人为您提供一对一咨询服务。",
+      "description": "留下您的联系方式，电话和微信号码，会直接推送到我后台，我会和您直接联系",
       "showForm": true,
-      "mapEmbed": ""
+      "mapEmbed": "<iframe src=\"https://maps.google.com/maps?q=Hangzhou&t=&z=13&ie=UTF8&iwloc=&output=embed\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen></iframe>"
     }
   ],
-  "categories": [
+  "pages": [
     {
       "id": "digital",
-      "name": "数字化转型",
-      "icon": "🚀",
-      "items": [
+      "title": "外贸跨境出海转型",
+      "type": "list",
+      "icon": "🌊",
+      "summary": "协助企业将内贸业务拓展海外，探索我们在数字化转型领域的专业解决方案。",
+      "children": [
+        {
+          "id": "level2",
+          "title": "A 页面",
+          "type": "list",
+          "summary": "这是第二层级",
+          "children": [
+            {
+              "id": "level3",
+              "title": "B 页面",
+              "type": "list",
+              "summary": "这是第三层级",
+              "children": [
+                {
+                  "id": "level4",
+                  "title": "C 页面",
+                  "type": "list",
+                  "summary": "这是第四层级",
+                  "children": [
+                    {
+                      "id": "level5",
+                      "title": "D 页面",
+                      "type": "list",
+                      "summary": "这是第五层级",
+                      "children": [
+                        {
+                          "id": "level6",
+                          "title": "E 页面",
+                          "type": "detail",
+                          "summary": "这是第六层级（详情页）",
+                          "content": "<h3>恭喜！</h3><p>您已经成功到达了第 6 级页面。</p>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
         {
           "id": "cloud-migration",
-          "name": "云端迁移服务",
-          "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
-          "summary": "协助企业将传统架构平滑迁移至云端，实现弹性扩展。",
-          "full_details": "<h3>云端迁移服务详情</h3><p>我们的云端迁移服务涵盖了从基础设施评估到最终实施的全过程。我们支持阿里云、华为云及腾讯云等主流云平台。</p><ul><li>架构评估与规划</li><li>数据安全迁移方案</li><li>云原生应用改造</li><li>24/7 运维支持</li></ul>"
+          "title": "企业出海保客户数量",
+          "type": "detail",
+          "image": "/assets/images/19800_package_quote.avif",
+          "summary": "协助企业将内贸业务拓展海外，点击可以看到我们服务过的客户案例！",
+          "content": "| 行业类别 | 公司/项目名称 | 官方网址 | 备注 |\n| :--- | :--- | :--- | :--- |\n| **纺织、服饰与时尚** | 童装 | [www.cnnanakidswear.com](http://www.cnnanakidswear.com) | |\n| **纺织、服饰与时尚** | 凯宇 (纺织品) | [fangzhi.demo.93seo.cn](http://fangzhi.demo.93seo.cn) | |\n| **纺织、服饰与时尚** | 潮州丹奈儿服饰 | [www.moonprom.com](http://www.moonprom.com) | |\n| **纺织、服饰与时尚** | 刘艳玉 (婚纱定制) | [vbridalboutique.com](http://vbridalboutique.com) | |\n| **汽车、交通与配件** | 沧州傲立车业 | [www.oliviavehicle.com](http://www.oliviavehicle.com) | |\n| **汽车、交通与配件** | chris 汽车配件 | [yingfengparts.com](https://yingfengparts.com) | |\n| **汽车、交通与配件** | 雨辰 (汽车配件) | [chenyuauto.com](http://chenyuauto.com) | |\n| **机械、智能装备** | 莱州工迪试验仪器 | [www.foosean.com](http://www.foosean.com) | |\n| **机械、智能装备** | 森海激光科技 | [www.sayhi-laser.com](http://www.sayhi-laser.com) | |\n| **机械、智能装备** | 东莞迪佰特 | [www.dbtcnc.com](https://www.dbtcnc.com) | CNC 智能装备 |\n| **机械、智能装备** | 青岛泽瀚机械 | [zehanfab.com](http://zehanfab.com) | |\n| **机械、智能装备** | 东莞慧迪智能 | [www.huidintech.com](http://www.huidintech.com) | |\n| **机械、智能装备** | 致胜 (智能装备) | [www.zhishengzhineng.com](http://www.zhishengzhineng.com) | |\n| **机械、智能装备** | 迈集克 (智能装备) | [www.maijikezhineng.com](http://www.maijikezhineng.com) | |\n| **电子、五金材料** | 北京安钼金属科技 | [www.anmonetal.com](http://www.anmonetal.com) | |\n| **电子、五金材料** | 东莞光恒电子 | [www.usbcfactory.com](http://www.usbcfactory.com) | |\n| **电子、五金材料** | 润景 (工业密封) | [silsealpro.com](http://silsealpro.com) | |\n| **电子、五金材料** | 东科五金 | [suofuai.com](http://suofuai.com) | |\n| **电子、五金材料** | 东莞合鑫隆配件 | [hxl-hardware.com](https://hxl-hardware.com) | 带支付 |\n| **电子、五金材料** | 陕西阿邦特科技 | [www.abant-resources.com](http://www.abant-resources.com) | |\n| **电子、五金材料** | 广西来宾晟安木业 | [saplywood.com](http://saplywood.com) | |\n| **家居、照明设备** | 红容照明电器 | [hongrongelectric.com](http://hongrongelectric.com) | |\n| **家居、照明设备** | 常州诚亚灯饰 | [czcy-zm.com](https://czcy-zm.com) | 带支付 |\n| **家居、照明设备** | 东莞尚盛档案设备 | [metalrackcn.com](http://metalrackcn.com) | |\n| **家居、照明设备** | 佛山长凌宝川箱包 | [www.booeei.com](http://www.booeei.com) | |\n| **美妆、生物工艺** | 琳汐化妆品 | [lincyra.com](http://lincyra.com) | |\n| **美妆、生物工艺** | 广州美域生物 | [gzmerit.cn](http://gzmerit.cn) | |\n| **美妆、生物工艺** | 湖南精准文化 | [www.crysbead.com](http://www.crysbead.com) | 带支付 |\n| **医疗、健康实验** | 广州亚宇实验室 | [dengyaj.com](http://dengyaj.com) | 带支付 |\n| **医疗、健康实验** | 西安酉点 | [meawangtcmacupressure.com](http://meawangtcmacupressure.com) | |\n| **医疗、健康实验** | 秦美艳 | [www.yunsusports.com](http://www.yunsusports.com) | |\n| **餐饮、食品服务** | 面馆 | [master-noodle.de](http://master-noodle.de) | |\n| **餐饮、食品服务** | 珠海横琴仙仙 | [tea-dynasty.com](http://tea-dynasty.com) | 网站暂时关闭 |\n| **电商综合服务** | 陆总 (T-Shop) | [www.tshop888.com](http://www.tshop888.com) | 带支付 |\n| **电商综合服务** | 深圳丝路星 | [irisewd.com](http://irisewd.com) | |\n| **电商综合服务** | 丁晓磊 (SEO) | [dxl.demo.93seo.cn](http://dxl.demo.93seo.cn) | 带支付 |"
         },
         {
           "id": "process-automation",
-          "name": "流程自动化 RPA",
+          "title": "流程自动化 RPA",
+          "type": "detail",
           "image": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=800&q=80",
           "summary": "利用机器人流程自动化技术，释放人力资源。",
-          "full_details": "<h3>流程自动化 RPA 详情</h3><p>通过引入 RPA 技术，我们帮助企业减少重复性劳动。在财务报表处理、人力资源入职流程等领域已有成熟案例。</p>"
+          "content": "</p>"
         }
       ]
     },
     {
       "id": "consulting",
-      "name": "战略咨询",
+      "title": "战略咨询",
+      "type": "list",
       "icon": "💡",
-      "items": [
+      "summary": "深度的行业调研，助力企业精准决策。",
+      "children": [
         {
           "id": "market-analysis",
-          "name": "市场洞察分析",
+          "title": "市场洞察分析",
+          "type": "detail",
           "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
           "summary": "深度的行业调研，助力企业精准决策。",
-          "full_details": "<h3>市场洞察分析详情</h3><p>我们提供定制化的行业研究报告，包括竞品分析、消费者行为预测等。</p>"
+          "content": "<h3>市场洞察分析详情</h3><p>我们提供定制化的行业研究报告，包括竞品分析、消费者行为预测等。</p>"
         }
       ]
     }
   ],
   "contact": {
     "title": "联系我们",
-    "email": "contact@siyuxiamen.cn",
-    "phone": "+86 592-1234-5678",
-    "address": "福建省厦门市思明区软件园二期",
-    "copyright": "© 2026 思域厦门. All Rights Reserved."
+    "email": "siyucehua2022@163.com",
+    "phone": "+86 19374723236",
+    "address": "浙江·杭州",
+    "copyright": "© 2026"
   }
 }

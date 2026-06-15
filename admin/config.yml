@@ -79,28 +79,67 @@ collections:
                   - { label: "Description", name: "description", widget: "markdown" }
                   - { label: "Show Form", name: "showForm", widget: "boolean" }
                   - { label: "Map Embed Code", name: "mapEmbed", widget: "text" }
-          - label: "Categories (For Subpages)"
-            name: "categories"
+          
+          - label: "Recursive Pages (Unlimited Depth Support)"
+            name: "pages"
             widget: "list"
-            fields:
-              - label: "Category ID (URL safe)"
-                name: "id"
-                widget: "string"
-              - label: "Category Name"
-                name: "name"
-                widget: "string"
-              - label: "Icon"
-                name: "icon"
-                widget: "string"
-              - label: "Items"
-                name: "items"
+            fields: &page_fields
+              - { label: "Page ID (URL safe)", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
+              - { label: "Icon", name: "icon", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Summary", name: "summary", widget: "markdown", required: false }
+              - { label: "Content (For detail pages)", name: "content", widget: "markdown", required: false }
+              - label: "Children (L2)"
+                name: "children"
                 widget: "list"
+                required: false
                 fields:
-                  - { label: "Item ID (URL safe)", name: "id", widget: "string" }
-                  - { label: "Item Name", name: "name", widget: "string" }
-                  - { label: "Summary", name: "summary", widget: "markdown" }
-                  - { label: "Image URL", name: "image", widget: "image" }
-                  - { label: "Full Details (HTML/Markdown)", name: "full_details", widget: "markdown" }
+                  - { label: "Page ID (URL safe)", name: "id", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
+                  - { label: "Icon", name: "icon", widget: "string", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Summary", name: "summary", widget: "markdown", required: false }
+                  - { label: "Content (For detail pages)", name: "content", widget: "markdown", required: false }
+                  - label: "Children (L3)"
+                    name: "children"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Page ID (URL safe)", name: "id", widget: "string" }
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
+                      - { label: "Icon", name: "icon", widget: "string", required: false }
+                      - { label: "Image", name: "image", widget: "image", required: false }
+                      - { label: "Summary", name: "summary", widget: "markdown", required: false }
+                      - { label: "Content (For detail pages)", name: "content", widget: "markdown", required: false }
+                      - label: "Children (L4)"
+                        name: "children"
+                        widget: "list"
+                        required: false
+                        fields:
+                          - { label: "Page ID (URL safe)", name: "id", widget: "string" }
+                          - { label: "Title", name: "title", widget: "string" }
+                          - { label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
+                          - { label: "Icon", name: "icon", widget: "string", required: false }
+                          - { label: "Image", name: "image", widget: "image", required: false }
+                          - { label: "Summary", name: "summary", widget: "markdown", required: false }
+                          - { label: "Content (For detail pages)", name: "content", widget: "markdown", required: false }
+                          - label: "Children (L5)"
+                            name: "children"
+                            widget: "list"
+                            required: false
+                            fields:
+                              - { label: "Page ID (URL safe)", name: "id", widget: "string" }
+                              - { label: "Title", name: "title", widget: "string" }
+                              - { label: "Type", name: "type", widget: "select", options: ["list", "detail"], default: "list" }
+                              - { label: "Icon", name: "icon", widget: "string", required: false }
+                              - { label: "Image", name: "image", widget: "image", required: false }
+                              - { label: "Summary", name: "summary", widget: "markdown", required: false }
+                              - { label: "Content (For detail pages)", name: "content", widget: "markdown", required: false }
+
           - label: "Footer Info"
             name: "contact"
             widget: "object"

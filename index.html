@@ -25,7 +25,7 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#/" class="text-slate-600 hover:text-indigo-600 px-3 py-2 text-sm font-medium">首页</a>
-                        <a href="#/category/digital" class="text-slate-600 hover:text-indigo-600 px-3 py-2 text-sm font-medium">业务</a>
+                        <a href="#/pages/digital" class="text-slate-600 hover:text-indigo-600 px-3 py-2 text-sm font-medium">业务</a>
                     </div>
                 </div>
             </div>
@@ -96,16 +96,34 @@
 
             if (hash === '#/' || hash === '') {
                 renderHome(mainView);
-            } else if (hash.startsWith('#/category/')) {
-                const catId = hash.replace('#/category/', '');
-                renderCategory(mainView, catId);
-            } else if (hash.startsWith('#/item/')) {
-                const itemId = hash.replace('#/item/', '');
-                renderItem(mainView, itemId);
+            } else if (hash.startsWith('#/pages/')) {
+                const pathStr = hash.replace('#/pages/', '');
+                const pathArray = pathStr.split('/').filter(p => p);
+                const pageNode = findPageByPath(pathArray);
+                if (pageNode) {
+                    renderPage(mainView, pageNode, pathArray);
+                } else {
+                    mainView.innerHTML = `<div class="p-20 text-center text-slate-500">页面未找到</div>`;
+                }
             } else {
                 renderHome(mainView); // Fallback
             }
             window.scrollTo(0, 0);
+        }
+
+        function findPageByPath(pathArray) {
+            let currentNodes = siteData.pages;
+            let foundNode = null;
+
+            for (let i = 0; i < pathArray.length; i++) {
+                const segment = pathArray[i];
+                foundNode = currentNodes.find(n => n.id === segment);
+                if (!foundNode) return null;
+                if (i < pathArray.length - 1) {
+                    currentNodes = foundNode.children || [];
+                }
+            }
+            return foundNode;
         }
 
         function renderHome(container) {
@@ -237,81 +255,68 @@
             }
         }
 
-        function renderCategory(container, catId) {
-            const category = siteData.categories.find(c => c.id === catId);
-            if (!category) {
-                container.innerHTML = `<div class="p-20 text-center">分类未找到</div>`;
-                return;
-            }
-
-            const section = document.createElement('div');
-            section.className = 'fade-in py-24';
-            section.innerHTML = `
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav class="mb-8 text-sm text-slate-500">
-                        <a href="#/" class="hover:text-indigo-600">首页</a> / <span>${category.name}</span>
-                    </nav>
-                    <div class="mb-16">
-                        <h1 class="text-4xl font-bold text-slate-900 mb-4">${category.icon} ${category.name}</h1>
-                        <p class="text-xl text-slate-600">探索我们在${category.name}领域的专业解决方案。</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        ${category.items.map(item => `
-                            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col">
-                                <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover">
-                                <div class="p-8">
-                                    <h3 class="text-2xl font-bold mb-4">${item.name}</h3>
-                                    <div class="text-slate-600 mb-8">${marked.parse(item.summary)}</div>
-                                    <a href="#/item/${item.id}" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
-                                        查看详情 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-            container.appendChild(section);
-        }
-
-        function renderItem(container, itemId) {
-            let item = null;
-            let category = null;
-            siteData.categories.forEach(cat => {
-                const found = cat.items.find(i => i.id === itemId);
-                if (found) {
-                    item = found;
-                    category = cat;
+        function renderPage(container, page, pathArray) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'fade-in py-24';
+            
+            // Generate Breadcrumbs
+            let breadcrumbHtml = `<a href="#/" class="hover:text-indigo-600">首页</a>`;
+            let currentPath = '#/pages';
+            pathArray.forEach((seg, index) => {
+                currentPath += `/${seg}`;
+                if (index === pathArray.length - 1) {
+                    breadcrumbHtml += ` / <span class="text-slate-900 font-medium">${page.title}</span>`;
+                } else {
+                    // To get the title for intermediate segments, we'd need to trace back.
+                    // For simplicity, we can use the segments themselves or better, find them.
+                    const parentNode = findPageByPath(pathArray.slice(0, index + 1));
+                    breadcrumbHtml += ` / <a href="${currentPath}" class="hover:text-indigo-600">${parentNode ? parentNode.title : seg}</a>`;
                 }
             });
 
-            if (!item) {
-                container.innerHTML = `<div class="p-20 text-center">项目未找到</div>`;
-                return;
+            if (page.type === 'list') {
+                wrapper.innerHTML = `
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <nav class="mb-8 text-sm text-slate-500">${breadcrumbHtml}</nav>
+                        <div class="mb-16">
+                            <h1 class="text-4xl font-bold text-slate-900 mb-4">${page.icon || ''} ${page.title}</h1>
+                            <p class="text-xl text-slate-600">${page.summary || ''}</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${(page.children || []).map(child => `
+                                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col hover:shadow-md transition-shadow">
+                                    ${child.image ? `<img src="${child.image}" alt="${child.title}" class="w-full h-48 object-cover">` : `<div class="w-full h-48 bg-slate-100 flex items-center justify-center text-4xl">${child.icon || '📄'}</div>`}
+                                    <div class="p-8">
+                                        <h3 class="text-xl font-bold mb-3">${child.title}</h3>
+                                        <div class="text-slate-600 mb-6 text-sm">${marked.parse(child.summary || '')}</div>
+                                        <a href="#/pages/${pathArray.join('/')}/${child.id}" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700">
+                                            查看详情 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else {
+                // detail type
+                wrapper.innerHTML = `
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <nav class="mb-8 text-sm text-slate-500">${breadcrumbHtml}</nav>
+                        ${page.image ? `<img src="${page.image}" alt="${page.title}" class="w-full h-[400px] object-cover rounded-3xl shadow-xl mb-12">` : ''}
+                        <h1 class="text-4xl font-extrabold text-slate-900 mb-6">${page.title}</h1>
+                        <div class="prose prose-indigo prose-lg max-w-none text-slate-600 mb-12">
+                            ${marked.parse(page.content || '')}
+                        </div>
+                        <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
+                            <h4 class="text-indigo-900 font-bold mb-2">对该项目感兴趣？</h4>
+                            <p class="text-indigo-700 mb-6">点击下方按钮直接咨询我们的专业顾问。</p>
+                            <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">立即联系</a>
+                        </div>
+                    </div>
+                `;
             }
-
-            const section = document.createElement('div');
-            section.className = 'fade-in py-24';
-            section.innerHTML = `
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav class="mb-8 text-sm text-slate-500">
-                        <a href="#/" class="hover:text-indigo-600">首页</a> / 
-                        <a href="#/category/${category.id}" class="hover:text-indigo-600">${category.name}</a> / 
-                        <span>${item.name}</span>
-                    </nav>
-                    <img src="${item.image}" alt="${item.name}" class="w-full h-[400px] object-cover rounded-3xl shadow-xl mb-12">
-                    <h1 class="text-4xl font-extrabold text-slate-900 mb-6">${item.name}</h1>
-                    <div class="prose prose-indigo prose-lg max-w-none text-slate-600 mb-12">
-                        ${marked.parse(item.full_details)}
-                    </div>
-                    <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
-                        <h4 class="text-indigo-900 font-bold mb-2">对该项目感兴趣？</h4>
-                        <p class="text-indigo-700 mb-6">点击下方按钮直接咨询我们的专业顾问。</p>
-                        <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">立即联系</a>
-                    </div>
-                </div>
-            `;
-            container.appendChild(section);
+            container.appendChild(wrapper);
         }
 
         window.addEventListener('DOMContentLoaded', init);
